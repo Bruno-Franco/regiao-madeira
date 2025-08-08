@@ -10,7 +10,7 @@ interface MenuContextIterface {
   firstLevelDropdown: (val?: boolean) => void
   secondLevelDropdown: (val?: boolean) => void
   firstLevelDropdownDiv: (val?: boolean) => void
-  handleHamburguer: () => void
+  handleHamburguer: (val?: boolean) => void
 }
 
 const MenuContext = createContext<MenuContextIterface>({
@@ -30,8 +30,12 @@ export function MenuProvider({ children }: PropsWithChildren) {
   const [secondIsOpen, setsecondIsOpen] = useState<boolean>(false)
   const [isOpenHamburguer, setIsOpenHamburguer] = useState<boolean>(false)
 
-  function handleHamburguer() {
-    setIsOpenHamburguer((prev) => !prev)
+  function handleHamburguer(val?: boolean) {
+    if (typeof val === 'boolean') {
+      setIsOpenHamburguer(val)
+    } else {
+      setIsOpenHamburguer((prev) => !prev)
+    }
   }
 
   function firstLevelDropdown(val?: boolean) {
@@ -72,4 +76,4 @@ export function MenuProvider({ children }: PropsWithChildren) {
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>
 }
 
-export const useRegiaoContext = () => useContext(MenuContext)
+export const useMenuContext = () => useContext(MenuContext)

@@ -52,6 +52,28 @@ h5,
 h6 {
   font-family: var(--font-merriweatherSans);
 }
+h1 {
+  font-size: clamp(2rem, 3vw, 3rem); /* Hero header with dynamic scaling */
+}
+h2 {
+  font-size: clamp(1.75rem, 2.25vw, 2.25rem); /* Primary section headers */
+}
+h3 {
+  font-size: clamp(
+    1.3rem,
+    1.5vw,
+    1.5rem
+  ); /* Secondary headers, consistent with global rem */
+}
+h4 {
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+}
+h5 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+h6 {
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

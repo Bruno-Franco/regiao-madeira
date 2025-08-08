@@ -8,11 +8,10 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div className="min-h-[100dvh] grid grid-rows-[auto_1fr_auto]">
       <NavBar />
-
-      {children}
+      <main>{children}</main>
       <Footer />
-    </>
+    </div>
   )
 }

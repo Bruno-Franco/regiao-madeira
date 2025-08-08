@@ -1,25 +1,21 @@
 'use client'
 
-import { useRegiaoContext } from '@/context/navcontext/menu-context'
+import { useMenuContext } from '@/context/navcontext/menu-context'
 import { ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import { GruposDrop } from './grupos-drop'
 
 export function RegiaoDrop() {
-  const { firstLevelDropdown, firstLevelDropdownDiv, firstIsOpen } =
-    useRegiaoContext()
+  const {
+    firstLevelDropdown,
+    firstIsOpen,
+    secondIsOpen,
+    firstLevelDropdownDiv,
+    secondLevelDropdown,
+  } = useMenuContext()
 
   return (
     <>
-      <span>
-        <ChevronDown
-          onClick={() => {
-            firstLevelDropdown()
-            firstLevelDropdownDiv(false)
-          }}
-          className="text-white w-8 cursor-pointer"
-        />
-      </span>
       <div
         className={` ${
           firstIsOpen ? 'flex flex-col' : 'hidden'
@@ -52,6 +48,17 @@ export function RegiaoDrop() {
           >
             Grupos
           </Link>
+          <span>
+            <ChevronDown
+              onClick={() => {
+                secondLevelDropdown()
+                firstLevelDropdownDiv(false)
+              }}
+              className={`${
+                secondIsOpen ? 'rotate-180 ' : 'rotate-0'
+              } text-azul-scout w-8 cursor-pointer transition-all delay-75`}
+            />
+          </span>
           <GruposDrop />
         </div>
       </div>

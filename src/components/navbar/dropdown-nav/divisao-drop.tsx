@@ -1,28 +1,18 @@
 'use client'
 
-import { useRegiaoContext } from '@/context/navcontext/menu-context'
-import { ChevronDown } from 'lucide-react'
+import { useMenuContext } from '@/context/navcontext/menu-context'
+
 import Link from 'next/link'
 
 export function DivisoesDrop() {
-  const { firstLevelDropdown, firstIsOpenDiv, firstLevelDropdownDiv } =
-    useRegiaoContext()
+  const { firstIsOpenDiv, firstLevelDropdownDiv } = useMenuContext()
 
   return (
     <>
-      <span>
-        <ChevronDown
-          onClick={() => {
-            firstLevelDropdownDiv()
-            firstLevelDropdown(false)
-          }}
-          className="text-white w-8 cursor-pointer"
-        />
-      </span>
       <div
         className={` ${
           firstIsOpenDiv ? 'flex flex-col' : 'hidden'
-        }    bg-white absolute text-azul-scout top-[70px]  w-[200px] px-1 py-4 gap-2 rounded-sm shadow-md`}
+        }   bg-white absolute text-azul-scout top-[70px]  w-[200px] px-1 py-4 gap-2 rounded-sm shadow-md`}
       >
         <Link
           className="hover:bg-verde-scout/10 p-2 rounded-sm"

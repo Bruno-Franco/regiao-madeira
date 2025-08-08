@@ -6,12 +6,14 @@ import { RegiaoDrop } from './dropdown-nav/regiao-drop'
 import { RegiaoDaMadeiraLink } from './links/regiao-da-madeira'
 import { DivisoesLink } from './links/divisoes'
 import { InstitucionalLink } from './links/institucional'
-import { RegiaoDropMobile } from './dropdown-nav-mobile/regiao-drop-mobile'
+
+import { HamburguerMenu } from './hamburguer-menu/hamburguer-menu'
+import { MobileMenu } from './mobile-menu/mobile-menu'
 
 export function NavBar() {
   return (
-    <div className=" w-screen px-2 h-[70px] bg-azul-scout border-b-4 border-b-verde-scout">
-      <nav className="max-w-5xl mx-auto flex justify-between items-center h-[70px]">
+    <header className=" w-screen px-6 h-[70px] bg-azul-scout border-b-4 border-b-verde-scout">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center h-[70px] relative">
         <div>
           <Link href="/">
             <Image
@@ -38,11 +40,9 @@ export function NavBar() {
           <InstitucionalLink />
         </div>
         {/* /mobile menu */}
-        <div className="absolute bg-white w-screen top-[70px] left-0 text-center">
-          <RegiaoDaMadeiraLink />
-          <RegiaoDropMobile />
-        </div>
+        <HamburguerMenu />
+        <MobileMenu />
       </nav>
-    </div>
+    </header>
   )
 }
