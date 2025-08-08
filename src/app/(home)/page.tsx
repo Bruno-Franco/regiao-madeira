@@ -17,7 +17,8 @@ export default function Home() {
           <h2 className="text-center my-10">Escotismo para todos</h2>
           <p className="mb-2">
             Os Escoteiros de Portugal{' '}
-            <span className="bg-linear-to-b from-white  from-70% to-azul-scout/50 to-100% pb-0.5">
+            {/* <span className="bg-linear-to-b from-white  from-70% to-azul-scout/50 to-100% pb-0.5"> */}
+            <span className="bg-azul-scout text-white pl-2 pr-4 py-2 font-bold border-l-8 border-verde-scout">
               {' '}
               são uma associação educativa para jovens, sem fins lucrativos, de
               utilidade pública.
