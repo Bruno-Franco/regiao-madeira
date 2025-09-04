@@ -16,7 +16,7 @@ export function GruposDrop() {
       <div
         className={` ${
           secondIsOpen ? 'flex flex-col' : 'hidden'
-        }   bg-white absolute text-azul-scout top-[150px]  w-[200px] px-1 py-4 gap-2 rounded-sm shadow-md`}
+        } z-10  bg-white absolute text-azul-scout top-[150px]  w-[200px] px-1 py-4 gap-2 rounded-sm shadow-md`}
       >
         <Link
           onClick={() => {

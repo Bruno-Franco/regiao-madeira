@@ -19,7 +19,7 @@ export function RegiaoDrop() {
       <div
         className={` ${
           firstIsOpen ? 'flex flex-col' : 'hidden'
-        }    bg-white absolute text-azul-scout top-[70px]  w-[200px] px-1 py-4 gap-2 rounded-sm shadow-md`}
+        }  z-10 bg-white absolute text-azul-scout top-[70px]  w-[200px] px-1 py-4 gap-2 rounded-sm shadow-md`}
       >
         <Link
           className="hover:bg-verde-scout/10 p-2 rounded-sm"

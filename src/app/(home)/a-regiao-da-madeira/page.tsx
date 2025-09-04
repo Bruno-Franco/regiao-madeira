@@ -63,7 +63,9 @@ export default function ARegiaoDaMadeiraPage() {
       <div className="bg-verde-scout/10 pt-20">
         <section className="max-w-7xl px-6  text-justify text-base/8  mx-auto text-zinc-700 sm:text-base/8 pb-24">
           <div className="flex flex-col gap-4 mb-20">
-            <h2 className="sm:text-base/normal text-center">A Nossa Equipa</h2>
+            <h2 className="sm:text-base/normal font-bold  text-center">
+              A Nossa Equipa
+            </h2>
           </div>
           <div className="grid md:grid-cols-3 grid-cols-2  gap-8 mb-9 max-w-[1000px] mx-auto">
             <div className="w-[180px] p-4 bg-white rounded-md shadow-lg md:col-span-3  col-span-2 mx-auto">

@@ -19,7 +19,7 @@ export function MobileMenu() {
     <div
       className={`${
         isOpenHamburguer ? 'absolute' : 'h-0 opacity-0 absolute'
-      } sm:hidden   transition-all  top-[70px] bg-white text-center text-azul-scout  w-screen left-[-24px] p-2 rounded-b-sm shadow-md`}
+      } sm:hidden  z-10 transition-all  top-[70px] bg-white text-center text-azul-scout  w-screen left-[-24px] p-2 rounded-b-sm shadow-md`}
     >
       <ul className="flex flex-col gap-2">
         <li>
