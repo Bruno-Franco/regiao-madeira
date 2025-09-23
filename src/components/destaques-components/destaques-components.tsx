@@ -12,9 +12,9 @@ export function DestaquesComponents() {
   return (
     <section className="p-6  text-justify text-base/7  mx-auto text-zinc-700 pb-28 bg-verde-scout/5 sm:text-base/8">
       <div>
-        <h2 className="text-center mb-25 mt-15">
-          {' '}
-          <span className="bg-linear-to-b from-verde-scout/2  from-70% to-azul-scout/50 to-100% pb-0.5 px-6">
+        <h2 className="sm:text-base/normal text-center mb-20">
+          {/* <span className="bg-linear-to-b from-white from-70% to-azul-scout/50 to-100% pb-0.5 px-6"> */}
+          <span className="bg-azul-scout text-white pl-2 pr-4 py-2 font-bold border-l-8 border-verde-scout">
             Destaques
           </span>
         </h2>
