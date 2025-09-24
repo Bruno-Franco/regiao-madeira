@@ -28,7 +28,7 @@ export default function RootLayout({
       className={`${openSans.variable} ${merriweatherSans.variable} antialiased`}
     >
       <MenuProvider>
-        <body>{children}</body>
+        <body id="main-body">{children}</body>
       </MenuProvider>
     </html>
   )

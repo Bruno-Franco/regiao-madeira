@@ -9,11 +9,24 @@ import { InstitucionalLink } from './links/institucional'
 
 import { HamburguerMenu } from './hamburguer-menu/hamburguer-menu'
 import { MobileMenu } from './mobile-menu/mobile-menu'
+import ButtonLogin from '../button-login/button-login'
 
 export function NavBar() {
   return (
-    <header className=" w-screen px-6 h-[70px] bg-azul-scout border-b-4 border-b-verde-scout">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center h-[70px] relative">
+    <header className=" w-screen  bg-azul-scout border-b-4 border-b-verde-scout h-[100px]">
+      <div className="w-full mx-auto bg-azul-scout border-b-1 border-b-verde-scout h-[30px]">
+        <nav className="max-w-7xl px-6 mx-auto flex justify-between items-center relative h-full">
+          <div className="ml-auto flex flex-row-reverse gap-4 justify-center items-center">
+            <ButtonLogin />
+            <ul className="flex items-center justify-center gap-4 text-sm text-white">
+              <li>Admin</li>
+              <li>Pedidos</li>
+              <li>Submissões</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <nav className="max-w-7xl px-6 mx-auto flex justify-between items-center h-[70px] relative">
         <div>
           <Link href="/">
             <Image
