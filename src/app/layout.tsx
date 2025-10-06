@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Merriweather_Sans, Open_Sans } from 'next/font/google'
 import './globals.css'
 import { MenuProvider } from '@/context/navcontext/menu-context'
+import { UserProvider } from '@/context/usercontext/user-context'
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -28,7 +29,9 @@ export default function RootLayout({
       className={`${openSans.variable} ${merriweatherSans.variable} antialiased`}
     >
       <MenuProvider>
-        <body id="main-body">{children}</body>
+        <UserProvider>
+          <body id="main-body">{children}</body>
+        </UserProvider>
       </MenuProvider>
     </html>
   )
