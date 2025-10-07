@@ -29,18 +29,10 @@ export default function AreaReservada() {
     return <p className="text-center mt-8 text-white">Redirecionando...</p>
 
   return (
-    <>
+    <section className="max-w-7xl p-6  text-justify text-base/7  mx-auto text-zinc-700 sm:text-base/8 pb-24">
       <p>Welcome, {user?.name || 'User'}!</p>
       <p>Email: {user?.email}</p>
-      {/* add-start: sign out button */}
-      <button
-        onClick={() => authClient.signOut()}
-        className="w-full bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200"
-      >
-        Sign Out
-      </button>
-
       <h1>Area reservada</h1>
-    </>
+    </section>
   )
 }

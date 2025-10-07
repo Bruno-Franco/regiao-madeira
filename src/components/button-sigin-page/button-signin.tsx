@@ -16,17 +16,19 @@ export default function SignInGoogle({
 }: GoogleForm) {
   async function handleLogin() {
     console.log(form)
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    form ? sending(true) : ''
-    try {
-      await authClient.signIn.social({
-        provider: 'google',
-        callbackURL: '/area-reservada',
-      })
-    } catch (error) {
-      console.log(error)
-    } finally {
-      sending(false)
+
+    if (form) {
+      sending(true)
+      try {
+        await authClient.signIn.social({
+          provider: 'google',
+          callbackURL: '/area-reservada',
+        })
+      } catch (error) {
+        console.log(error)
+      } finally {
+        sending(false)
+      }
     }
   }
 
@@ -61,7 +63,7 @@ export default function SignInGoogle({
           Enviando...
         </>
       ) : (
-        'Sign in'
+        'Entrar com Google'
       )}
     </button>
   )

@@ -7,7 +7,6 @@ import { RegiaoDrop } from './dropdown-nav/regiao-drop'
 import { RegiaoDaMadeiraLink } from './links/regiao-da-madeira'
 import { DivisoesLink } from './links/divisoes'
 import { InstitucionalLink } from './links/institucional'
-
 import { HamburguerMenu } from './hamburguer-menu/hamburguer-menu'
 import { MobileMenu } from './mobile-menu/mobile-menu'
 import ButtonLogin from '../button-login/button-login'
@@ -33,7 +32,9 @@ export function NavBar() {
               {isLoggedIn && (
                 <>
                   <li>Admin</li>
-                  <li>Pedidos</li>
+                  <Link href="/area-reservada/pedidos">
+                    <li>Pedidos</li>
+                  </Link>
                   <li>Submissões</li>
                 </>
               )}
