@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { authClient } from '../../lib/auth-client'
+import checkUser from './check-user'
+import Image from 'next/image'
 
 interface GoogleForm {
   form: string | null
@@ -15,19 +17,24 @@ export default function SignInGoogle({
   sending,
 }: GoogleForm) {
   async function handleLogin() {
-    console.log(form)
-
     if (form) {
       sending(true)
-      try {
-        await authClient.signIn.social({
-          provider: 'google',
-          callbackURL: '/area-reservada',
-        })
-      } catch (error) {
-        console.log(error)
-      } finally {
+      const user = await checkUser(form)
+
+      if (user?.email === form) {
+        try {
+          await authClient.signIn.social({
+            provider: 'google',
+            callbackURL: '/area-reservada',
+          })
+        } catch (error) {
+          console.log(error)
+        } finally {
+          sending(false)
+        }
+      } else {
         sending(false)
+        console.log(user)
       }
     }
   }
@@ -63,7 +70,16 @@ export default function SignInGoogle({
           Enviando...
         </>
       ) : (
-        'Entrar com Google'
+        <>
+          <Image
+            width={10}
+            height={10}
+            src="https://www.svgrepo.com/show/355037/google.svg"
+            className="w-5 h-5 mr-2"
+            alt="Google Icon"
+          ></Image>
+          <span className="dark:text-gray-300">Entrar com Google</span>
+        </>
       )}
     </button>
   )

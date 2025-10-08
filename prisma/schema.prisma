@@ -74,3 +74,18 @@ model Verification {
 
   @@map("verification")
 }
+
+model AllowedUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  role      String? // opcional: ADMIN/USER
+  createdAt DateTime @default(now())
+}
+
+model Pedido {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  link        String
+  createdAt   DateTime @default(now())
+}

@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { DivisoesDrop } from './dropdown-nav/divisao-drop'
 import { RegiaoDrop } from './dropdown-nav/regiao-drop'
 import { RegiaoDaMadeiraLink } from './links/regiao-da-madeira'
@@ -11,15 +10,30 @@ import { HamburguerMenu } from './hamburguer-menu/hamburguer-menu'
 import { MobileMenu } from './mobile-menu/mobile-menu'
 import ButtonLogin from '../button-login/button-login'
 import { useUserContext } from '@/context/usercontext/user-context'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { authClient } from '@/lib/auth-client'
 
 export function NavBar() {
-  const { user, isLoggedIn, setIsLoggedIn } = useUserContext()
-  console.log(isLoggedIn)
+  const { user, setIsLoggedIn, isLoggedIn } = useUserContext()
+  const { data: session, isPending } = authClient.useSession()
+  const [userRole, setUserRole] = useState<'ADMIN' | 'USER' | null>(null)
 
   useEffect(() => {
-    setIsLoggedIn(user ? true : false)
-  }, [setIsLoggedIn, user])
+    if (isPending) return
+    if (!session?.user) {
+      setIsLoggedIn(false)
+      setUserRole(null)
+      return
+    }
+
+    ;(async () => {
+      const response = await fetch('/api/session')
+      const data = await response.json()
+      const role = data.role
+      setUserRole(role)
+      setIsLoggedIn(true)
+    })()
+  }, [setUserRole, setIsLoggedIn, user, isLoggedIn, isPending, session?.user])
 
   return (
     <header className=" w-screen  bg-azul-scout border-b-4 border-b-verde-scout h-[100px]">
@@ -29,13 +43,27 @@ export function NavBar() {
             <ButtonLogin />
 
             <ul className="flex items-center justify-center gap-4 text-sm text-white">
-              {isLoggedIn && (
+              {userRole === 'ADMIN' && (
                 <>
-                  <li>Admin</li>
+                  <Link href="/area-reservada">
+                    <li>Reservada</li>
+                  </Link>
+                  <Link href="/area-reservada/admin">
+                    <li>Admin</li>
+                  </Link>
                   <Link href="/area-reservada/pedidos">
                     <li>Pedidos</li>
                   </Link>
-                  <li>Submissões</li>
+                </>
+              )}
+              {userRole === 'USER' && (
+                <>
+                  <Link href="/area-reservada">
+                    <li>Reservada</li>
+                  </Link>
+                  <Link href="/area-reservada/pedidos">
+                    <li>Pedidos</li>
+                  </Link>
                 </>
               )}
             </ul>
