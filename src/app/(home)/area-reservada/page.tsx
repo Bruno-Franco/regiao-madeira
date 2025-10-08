@@ -59,16 +59,12 @@ export default function AreaReservada() {
         )}
       </div>
       <div className="grig md:grid-cols-2 gap-2">
-        <h3>Grupos de Escoteiros na Ilha da Madeira</h3>
+        <h3>Agenda Regional de Eventos</h3>
       </div>
-      <div className="w-full mx-auto">
+      <div className="w-full h-[600px]">
         <iframe
           src="https://calendar.google.com/calendar/embed?src=brunofrancco%40gmail.com&ctz=Europe%2FLisbon"
-          className="border-0 mx-auto"
-          width="800"
-          height="600"
-          frameBorder="0"
-          scrolling="no"
+          className="border-0 mx-auto w-full h-full"
         ></iframe>
       </div>
     </section>
